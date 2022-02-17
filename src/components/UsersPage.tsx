@@ -5,9 +5,10 @@ import Card, { CardVariant } from './Card';
 import EventsExaple from './EventsExaple';
 import List from './List';
 import UserItem from './UserItem';
+import { useNavigate } from 'react-router-dom';
 
 const UsersPage:FC = () => {
-
+  const hist = useNavigate();
   const [users, setUsers] = useState<IUser[]>([
     {
       "id": 1,
@@ -61,7 +62,7 @@ const UsersPage:FC = () => {
       <Card onClick={(num) => console.log(num, 'click')} variant={CardVariant.primary} height='200px' width='200px'>
         <button>Кнопка</button>
       </Card>
-      <List items={users} renderItem={(user) => <UserItem user={user} key={user.id} />} />
+      <List items={users} renderItem={(user) => <UserItem onClick={(user) => hist('/user/' + user.id)} user={user} key={user.id} />} />
     </div>
   )
 }
