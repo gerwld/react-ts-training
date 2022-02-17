@@ -9,7 +9,7 @@ const EventsExaple: FC = () => {
   }
 
   const clickEvent = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(value);
+    console.log(inputRef.current?.value);
   }
   const dragEvent = (e: React.DragEvent<HTMLDivElement>) => {
     console.log('drag');
@@ -32,7 +32,8 @@ const EventsExaple: FC = () => {
 
   return (
     <div>
-      <input ref={inputRef} type="text" onChange={changeHandler} value={value} />
+      <input type="text" onChange={changeHandler} value={value} />
+      <input ref={inputRef} type="text" />
       <button onClick={clickEvent}>Text</button>
       <div draggable onDrag={dragEvent} style={{width: '200px', height: '200px', background: 'red'}}></div>
       <div 
