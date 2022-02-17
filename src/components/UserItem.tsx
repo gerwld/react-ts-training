@@ -3,7 +3,7 @@ import { IUser } from '../types/types';
 
 interface UserItemProps {
   user: IUser;
-  onClick: (user: IUser) => void ;
+  onClick: (user: IUser) => void;
 }
 
 
